@@ -426,7 +426,7 @@ where
         }
         info!("Rolling back migration '{}'", migration.name());
         migration.down(manager).await?;
-        info!("Migration '{}' has been rollbacked", migration.name());
+        info!("Migration '{}' has been rolled back", migration.name());
         seaql_migrations::Entity::delete_many()
             .filter(Expr::col(seaql_migrations::Column::Version).eq(migration.name()))
             .table_name(M::migration_table_name())
